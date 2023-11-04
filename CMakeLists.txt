@@ -556,6 +556,9 @@ configure_file (
 # Add the binary dir include directory for storm-config.h
 include_directories("${PROJECT_BINARY_DIR}/include")
 
+include_directories("/opt/homebrew/Cellar/gmp/6.3.0/include") #added
+
+
 include(CTest)
 # Compiles all tests
 add_custom_target(tests)

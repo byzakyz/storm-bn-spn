@@ -578,7 +578,7 @@ include(${STORM_3RDPARTY_SOURCE_DIR}/include_soplex.cmake)
 ##
 #############################################################
 
-include(${STORM_3RDPARTY_SOURCE_DIR}/include_spot.cmake)
+#include(${STORM_3RDPARTY_SOURCE_DIR}/include_spot.cmake)#TODOO
 
 #############################################################
 ##

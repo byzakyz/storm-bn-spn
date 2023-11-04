@@ -7,6 +7,7 @@ resources/3rdparty/cudd-3.0.0/config.h.in
 resources/3rdparty/cudd-3.0.0/aclocal.m4
 resources/3rdparty/cudd-3.0.0/Makefile.in
 resources/3rdparty/xercesc-3.1.2/
+carl-storm/.github
 #Visual Studio files
 *.[Oo]bj
 *.user
