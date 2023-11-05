@@ -57,6 +57,7 @@ struct BIF {
           "(" + LETTER + "|" + DIGIT + "|" + "[(]" + ")" + "+" +
           "(" + LETTER + "|" + DIGIT + "|" + "[+]" + "|" + "[-]" + "|" + "[)]" + "|" + "[(]" + "|" + "[/]" + "|" + "[*]" + ")" + "*";
   std::string MARKS = "[+-=<>]";
+  std::string MARKS_NON_EQUAL = "[+-<>]";
   std::string variableValue = "(" + LETTER + "|" + DIGIT + "|" + MARKS + ")" + "*";
   std::string variableValuesList = variableValue + SPACESTAR + "(" + SPACEPLUS + variableValue + ")" + "*";
   std::string dimensionDefinition = OPEN_BRAKET + SPACESTAR + DECIMAL_LITERAL + SPACESTAR + CLOSE_BRAKET;

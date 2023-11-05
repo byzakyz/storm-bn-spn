@@ -11,8 +11,7 @@ public:
 
 protected:    // Override the method you want to change
   void setParentsValues() override;
-private:
-  std::string rowDeclaration;
+
 };
 
 #endif // PROBABILITYROW_SPN_H

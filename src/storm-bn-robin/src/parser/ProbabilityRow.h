@@ -48,9 +48,10 @@ public:
 protected:
   std::vector<std::string> parentsNames;
   std::vector<std::string> parentsValues;
+  std::string rowDeclaration;
   
 private:
-  std::string rowDeclaration;
+  
   std::vector<std::string> possibleValues;
   std::vector<std::string> probabilities;
   std::vector<std::string> updatedProbabilites;

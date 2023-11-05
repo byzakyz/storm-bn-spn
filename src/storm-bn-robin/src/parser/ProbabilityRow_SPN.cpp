@@ -12,7 +12,7 @@ void ProbabilityRow_SPN::setParentsValues() {
   std::string match_string = util.returnMatchedString(rowDeclaration, bif.probabilityVariableList + "|" + bif.TABLE);
   util.eraseSubStr(match_string, bif.OPEN_PARAN);
   util.eraseSubStr(match_string, bif.CLOSE_PARAN);
-  std::regex WORD_REG("(" + bif.LETTER + "|" + bif.DIGIT + "|" + bif.MARKS + ")" + "+");
+  std::regex WORD_REG("(" + bif.LETTER + "|" + bif.DIGIT + "|" + bif.MARKS_NON_EQUAL + ")+|=");
   std::regex_iterator<std::string::iterator> rit(match_string.begin(), match_string.end(), WORD_REG);
   std::regex_iterator<std::string::iterator> rend;
   std::vector<std::string> matches;
@@ -25,8 +25,9 @@ void ProbabilityRow_SPN::setParentsValues() {
   if (matches.size() >= 2 && matches[1] =="=") {
     std::string value = matches[0];
     util.eraseSubStr(value, " ");
+    parentsNames.clear();
     parentsNames.push_back(value);
-    value = matches[3];
+    value = matches[2];
     util.eraseSubStr(value, " ");
     parentsValues.push_back(value);
   }else{
