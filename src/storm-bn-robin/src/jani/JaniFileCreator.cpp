@@ -186,7 +186,7 @@ std::string JaniFileCreator::createAutomata() {
   for (const ProbabilityTable& probTable : bnNetwork.getSortedProbabilityTables()) {
     for (const ProbabilityRow& row : probTable.getRows())
       retValue += createEdge(probTable.getNodeName(), probTable.getParentsNames(), row.getParentValues(),
-                             row.getProbabilities(), order);//PARENT NAME FOR THIS ROW AS PARAM NEEDED.
+                             row.getProbabilities(), order);//DO NOT USE ORDER
     order++;
     /*
     if(order >= maximumDepth){
@@ -203,16 +203,17 @@ std::string JaniFileCreator::createAutomata() {
   retValue += CLOSING_BRAKET + COMMA + NEW_LINE;
   return retValue;
 }
-//PARENT NAME FOR THIS ROW AS PARAM NEEDED.
+
 std::string JaniFileCreator::createEdge(std::string tableName, std::vector<std::string> parentsName,
                                         std::vector<std::string> parentValues,
                                         std::vector<std::string> rowProbabilities, int order) {
   std::string retValue;
   retValue += TAB + OPENING_BRACE + NEW_LINE;
+  //INSTEAD OF ORDER, NECESSARY LOC SHOULD BE FOUND!!! TODO 
   retValue += TAB + TAB + LOCATION + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(order) + DOUBLE_QUOTE +
               COMMA + NEW_LINE;
   retValue += createGuard(std::move(parentsName), std::move(parentValues));
-  retValue += createDestinations(std::move(tableName), std::move(rowProbabilities));//PARENT NAME FOR THIS ROW AS PARAM NEEDED.
+  retValue += createDestinations(std::move(tableName), std::move(rowProbabilities));
 
   retValue += TAB + CLOSING_BRACE + COMMA + NEW_LINE;
   return retValue;
@@ -232,7 +233,7 @@ JaniFileCreator::createGuard(const std::vector<std::string>& parentNamesVector, 
   }
   return retValue;
 }
-//CHANGE THIS PART FOR SPN, SINCE parentValuesVector CAN ONLY HAVE ONE VALUE FOR ONE PARENT EVEN THOUGH parentNamesVector>1
+
 std::string JaniFileCreator::createCondition(std::vector<std::string> parentNamesVector,
                                              std::vector<std::string> parentValuesVector) {
   std::string retValue;
@@ -315,6 +316,7 @@ std::string JaniFileCreator::createProbabilityAssignment(const std::string& tabl
   retValue += TAB + TAB + TAB + ASSIGNMENTS + COLON + SPACE + OPENING_BRAKET + NEW_LINE;
 
   if (search != bnNetwork.janiData.positionToEvidenceValue.end() && index != search->second) {
+    // FOR SPN: if we were to use this code line, positionToKnownNodesMap changes for each row since rows of same table can have different parents
     auto searchKnown = bnNetwork.janiData.positionToKnownNodesMap.find(position);
     if (searchKnown != bnNetwork.janiData.positionToNodesToResetMap.end()) {
       retValue += TAB + TAB + TAB + OPENING_BRACE + NEW_LINE;

@@ -3,6 +3,7 @@
 #include <regex>
 #include "BIFFORMAT.h"
 
+using namespace std;
 
 SPNetwork::SPNetwork()
   :BNNetwork(){
@@ -29,9 +30,9 @@ void SPNetwork::createTableList()
 }
 
 
-/*void SPNetwork::sortTheTables()
+void SPNetwork::sortTheTables()
 {
-  BayesianNetworkTransformer transformer;
+  SPNTransformer transformer;
   if (topologicalOrdering.empty())
   {
     //HERE THE TOPOLOGICAL ORDERING IS CALCULATED
@@ -45,7 +46,7 @@ void SPNetwork::createTableList()
    * I am sure this here can be changed so that getTopologicalOrderingStack returns
    * already sorted stack.
    */
-  /*stack<int> Stack = TopologicalOrderingFinder::getTopologicalOrderingStack(topologicalOrdering);
+  stack<int> Stack = TopologicalOrderingFinder::getTopologicalOrderingStack(topologicalOrdering);
   stack<int> sortStack;
   // sortedProbabilityTables and nodeTopologicalOrder
   while (!Stack.empty())
@@ -62,4 +63,4 @@ void SPNetwork::createTableList()
     order++;
     sortStack.pop();
   }
-}*/
+}

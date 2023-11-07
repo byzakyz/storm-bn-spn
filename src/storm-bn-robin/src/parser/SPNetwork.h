@@ -5,6 +5,7 @@
 
 #include "BNNetwork.h"
 #include "ProbabilityTable_SPN.h"
+#include "../transformer/SPNTransformer.h"
 #include <stack>
 
 
@@ -14,7 +15,7 @@ class SPNetwork: public BNNetwork {
     
   protected:
     void createTableList() override;
-    //void sortTheTables() override;
+    void sortTheTables() override;
   
 };
 

@@ -52,46 +52,10 @@ public:
   JaniCreationData runAlgorithm(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
                                 const std::unordered_map<Graph::NodeIndex, int> &evidence,
                                 const std::vector<bool> &hypothesis);
+protected:
 
-private:
-  /*
-   * Initializes member variables.
-   */
-  void initialize(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
-                  const std::unordered_map<Graph::NodeIndex , int> &evidence);
-
-  /*
-   * Calculates which node that is part of evidence has the largest index in the
-   * topological ordering and sets mLastIndexOfEvidence to that values.
-   */
-  void calculateLastPositionOfEvidence(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
-                                       const std::unordered_map<Graph::NodeIndex, int> &evidence);
-  /*
-   * Runs the main algorithm that creates the jani data.
-   */
-  JaniCreationData runTransformation(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
-                                     const std::unordered_map<Graph::NodeIndex , int> &evidence,
-                                     const std::vector<bool> &hypothesis);
-
-  /*
-   * Processes parents of the current node of the topological ordering. If the current node
-   * is the child of a parent with the largest index in the topological ordering, the parent
-   * needs to be removed from open set and needs to have its value reset. However, if the
-   * parent is in hypothesis, and mLastIndexOfEvidence is larger than the current position,
-   * it is necessary to postpone reset of its value until mLastIndexOfEvidence + 1.
-   */
-  void processParents(const Graph &graph, const Graph::NodeIndex indexOfNode, const std::vector<bool> &hypothesis,
-                      JaniCreationData &janiData);
-
-  /*
-   * However, if it is in hypothesis, and mLastIndexOfEvidence
-   * is larger than the position, it is necessary to postpone reset of its value
-   * until mLastIndexOfEvidence + 1.
-   */
-  void processNode(const Graph &graph, const Graph::NodeIndex indexOfNode, const std::vector<bool> &hypothesis,
-                          JaniCreationData &janiData, int position);
-
-private:
+void processIfEvidence(const Graph::NodeIndex indexOfNode, const std::unordered_map<Graph::NodeIndex, int> &evidence,
+                         JaniCreationData &janiData);
   /*
    * Contains nodes that have index in the topological ordering, smaller than
    * mCurrentPosition, but some of its children have index larger than
@@ -111,10 +75,47 @@ private:
    * For each node contains number of children, that has index in topological
    * ordering larger than the mCurrentPosition.
    */
-  std::vector<Graph::NodeCount> mChildrenCount;
+  std::vector<Graph::NodeCount> mChildrenCount;                         
 
-  void processIfEvidence(const Graph::NodeIndex indexOfNode, const std::unordered_map<Graph::NodeIndex, int> &evidence,
-                         JaniCreationData &janiData);
+private:
+  /*
+   * Initializes member variables.
+   */
+  void initialize(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
+                  const std::unordered_map<Graph::NodeIndex , int> &evidence);
+
+  /*
+   * Calculates which node that is part of evidence has the largest index in the
+   * topological ordering and sets mLastIndexOfEvidence to that values.
+   */
+  void calculateLastPositionOfEvidence(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
+                                       const std::unordered_map<Graph::NodeIndex, int> &evidence);
+  /*
+   * Runs the main algorithm that creates the jani data.
+   */
+  virtual JaniCreationData runTransformation(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
+                                     const std::unordered_map<Graph::NodeIndex , int> &evidence,
+                                     const std::vector<bool> &hypothesis);
+
+  /*
+   * Processes parents of the current node of the topological ordering. If the current node
+   * is the child of a parent with the largest index in the topological ordering, the parent
+   * needs to be removed from open set and needs to have its value reset. However, if the
+   * parent is in hypothesis, and mLastIndexOfEvidence is larger than the current position,
+   * it is necessary to postpone reset of its value until mLastIndexOfEvidence + 1.
+   */
+  virtual void processParents(const Graph &graph, const Graph::NodeIndex indexOfNode, const std::vector<bool> &hypothesis,
+                      JaniCreationData &janiData);
+
+  /*
+   * However, if it is in hypothesis, and mLastIndexOfEvidence
+   * is larger than the position, it is necessary to postpone reset of its value
+   * until mLastIndexOfEvidence + 1.
+   */
+  virtual void processNode(const Graph &graph, const Graph::NodeIndex indexOfNode, const std::vector<bool> &hypothesis,
+                          JaniCreationData &janiData, int position);
+
+
 };
 
 #endif //TRANSFORMATION_BAYESIANNETWORKTRANSFORMER_H

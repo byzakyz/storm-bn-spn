@@ -65,12 +65,11 @@ protected:
 
   std::vector<bool> createHypothesisIndicator() const;
   std::vector<ProbabilityTable> sortedProbabilityTables;
-  
-  void sortTheTables();
 
 private:
   
   virtual void createTableList();
+  virtual void sortTheTables();
   std::string networkName;
   std::vector<BNNode> nodes;
   

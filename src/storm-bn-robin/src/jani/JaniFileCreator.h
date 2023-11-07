@@ -27,9 +27,18 @@ public:
 
   std::string create();
 
+protected:
+  BNNetwork bnNetwork;
+
+  std::string createLocationsWithTransientValues();
+
+  std::string createGuard(const std::vector<std::string>& parentNamesVector, std::vector<std::string> parentValuesVector);
+
+  std::string createDestinations(const std::string& tableName, const std::vector<std::string>& rowProbabilities);
+
 
 private:
-  BNNetwork bnNetwork;
+  
   std::string networkName;
   int networkSize; /* number of nodes, which equals to number of Probability Tables, in the bayesian network */
   //int maximumDepth; /* maximum depth of the evidence and hypothesis nodes, which is needed to create the Markov Chain based on */
@@ -49,22 +58,16 @@ private:
 
   static std::string createTransientVariableBlock(const std::string& nodeName, int numberOfValues);
 
-  std::string createAutomata();
-
-  std::string
-  createEdge(std::string tableName, std::vector<std::string> parentsName, std::vector<std::string> parentValues,
+  virtual std::string createAutomata();
+  
+  virtual std::string createEdge(std::string tableName, std::vector<std::string> parentsName, std::vector<std::string> parentValues,
              std::vector<std::string> rowProbabilities, int order);
-
-  std::string createGuard(const std::vector<std::string>& parentNamesVector, std::vector<std::string> parentValuesVector);
 
   std::string
   createCondition(std::vector<std::string> parentNamesSubVector, std::vector<std::string> parentValueSubVector);
 
-  std::string createDestinations(const std::string& tableName, const std::vector<std::string>& rowProbabilities);
-
+  
   std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index);
-
-  std::string createLocationsWithTransientValues();
 
   std::string createSystem();
 
