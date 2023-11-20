@@ -8,10 +8,9 @@ class JaniFileCreator_SPN : public JaniFileCreator {
 public:
     explicit JaniFileCreator_SPN(SPNetwork& spNetwork);
 
-    // Override any functions that should behave differently when using SPNetwork
-    // For example:
-    // std::string create() override;
 protected:
+    const SPNTransformer::JaniCreationData& janiData;
+    std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index) override;
     std::string createAutomata() override;
     std::string createEdge(std::string tableName, std::vector<std::string> parentsName,
                                         std::vector<std::string> parentValues,

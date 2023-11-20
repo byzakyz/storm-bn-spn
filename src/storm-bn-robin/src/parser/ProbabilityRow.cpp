@@ -108,7 +108,7 @@ std::vector<std::string> ProbabilityRow::getParentValues() const {
   return parentsValues;
 }
 
-std::map<std::string, std::string> ProbabilityRow::getGuard() {
+std::map<std::string, std::string> ProbabilityRow::getGuard() const{
   return guard;
 }
 

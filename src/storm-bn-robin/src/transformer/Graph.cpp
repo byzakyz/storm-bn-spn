@@ -45,6 +45,14 @@ std::vector<Graph::NodeCount> Graph::getCountChildrenAllNodes() const {
   }
   return counts;
 }
+/*needed for SPN*/
+std::unordered_map<std::string, Graph::NodeCount> Graph::getNameToChildrenCountMap() const {
+  std::unordered_map<std::string, NodeCount> counts;
+  for (const auto node : mNodesVector) {
+    counts[node.mName] = node.mChildrenVector.size();
+  }
+  return counts;
+}
 
 std::vector<Graph::NodeCount> Graph::getCountParentsAllNodes() const {
   std::vector<NodeCount> counts;

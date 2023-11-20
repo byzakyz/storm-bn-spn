@@ -293,7 +293,7 @@ std::string JaniFileCreator::createDestinations(const std::string& tableName, co
   retValue += TAB + TAB + CLOSING_BRAKET + NEW_LINE;
   return retValue;
 }
-//ALSO NAME OF PARENT FOR THIS ROW AS PARAM NEEDED, CALCULATE A SECOND POSITION FOR EDGE LEADING TO LOC# OF THIS PARENT OF ROW
+
 std::string JaniFileCreator::createProbabilityAssignment(const std::string& tableName, std::string prob, int index) {
   std::string retValue;
   retValue += TAB + TAB + OPENING_BRACE + NEW_LINE;

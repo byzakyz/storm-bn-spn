@@ -323,7 +323,7 @@ void BNNetwork::sortTheTables()
   {
     //HERE THE TOPOLOGICAL ORDERING IS CALCULATED
     //topologicalOrdering = TopologicalOrderingFinder::getTopologicalOrdering(dag);
-    topologicalOrdering = {0,1,3,5,6,2,4,7,8};
+    topologicalOrdering = TopologicalOrderingFinder::getTopologicalOrdering(dag);
   }
   std::cout << "\nExpected Size of DTMC: "
             << TopologicalOrderingFinder::calculateSizeTopologicalOrdering(dag, topologicalOrdering) << "\n";

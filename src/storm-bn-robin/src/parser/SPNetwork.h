@@ -9,13 +9,16 @@
 #include <stack>
 
 
+
 class SPNetwork: public BNNetwork {
   public: 
     SPNetwork();
+    SPNTransformer::JaniCreationData janiData;
     
   protected:
     void createTableList() override;
     void sortTheTables() override;
+    
   
 };
 

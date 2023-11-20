@@ -36,11 +36,11 @@ void SPNetwork::sortTheTables()
   if (topologicalOrdering.empty())
   {
     //HERE THE TOPOLOGICAL ORDERING IS CALCULATED
-    topologicalOrdering = TopologicalOrderingFinder::getTopologicalOrdering(dag);
+    topologicalOrdering = {0,1,3,5,6,2,4,7,8};//TopologicalOrderingFinder::getTopologicalOrdering(dag);
   }
   std::cout << "\nExpected Size of DTMC: "
             << TopologicalOrderingFinder::calculateSizeTopologicalOrdering(dag, topologicalOrdering) << "\n";
-  janiData = transformer.runAlgorithm(dag, topologicalOrdering, createEvidenceIndexToValue(), createHypothesisIndicator());
+  
   /*
    * TODO
    * I am sure this here can be changed so that getTopologicalOrderingStack returns
@@ -63,4 +63,5 @@ void SPNetwork::sortTheTables()
     order++;
     sortStack.pop();
   }
+  janiData = transformer.runAlgorithm(dag, topologicalOrdering, createEvidenceIndexToValue(), createHypothesisIndicator(), sortedProbabilityTables, nodeTopologicalOrder);
 }

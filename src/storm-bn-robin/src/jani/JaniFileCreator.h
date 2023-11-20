@@ -36,6 +36,8 @@ protected:
 
   std::string createDestinations(const std::string& tableName, const std::vector<std::string>& rowProbabilities);
 
+  std::string convertExpressionToJaniFormat(std::string exp);
+
 
 private:
   
@@ -67,11 +69,10 @@ private:
   createCondition(std::vector<std::string> parentNamesSubVector, std::vector<std::string> parentValueSubVector);
 
   
-  std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index);
+  virtual std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index);
 
   std::string createSystem();
 
-  std::string convertExpressionToJaniFormat(std::string exp);
   // int determinateMaxDepth();
 
 };

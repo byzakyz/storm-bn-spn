@@ -52,10 +52,25 @@ public:
   JaniCreationData runAlgorithm(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
                                 const std::unordered_map<Graph::NodeIndex, int> &evidence,
                                 const std::vector<bool> &hypothesis);
+
+  
 protected:
 
-void processIfEvidence(const Graph::NodeIndex indexOfNode, const std::unordered_map<Graph::NodeIndex, int> &evidence,
+  /*
+   * Initializes member variables.
+   */
+  void initialize(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
+                  const std::unordered_map<Graph::NodeIndex , int> &evidence);
+
+  void processIfEvidence(const Graph::NodeIndex indexOfNode, const std::unordered_map<Graph::NodeIndex, int> &evidence,
                          JaniCreationData &janiData);
+
+  /*
+   * Runs the main algorithm that creates the jani data.
+   */
+  JaniCreationData runTransformation(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
+                                     const std::unordered_map<Graph::NodeIndex , int> &evidence,
+                                     const std::vector<bool> &hypothesis);
   /*
    * Contains nodes that have index in the topological ordering, smaller than
    * mCurrentPosition, but some of its children have index larger than
@@ -78,11 +93,6 @@ void processIfEvidence(const Graph::NodeIndex indexOfNode, const std::unordered_
   std::vector<Graph::NodeCount> mChildrenCount;                         
 
 private:
-  /*
-   * Initializes member variables.
-   */
-  void initialize(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
-                  const std::unordered_map<Graph::NodeIndex , int> &evidence);
 
   /*
    * Calculates which node that is part of evidence has the largest index in the
@@ -90,12 +100,6 @@ private:
    */
   void calculateLastPositionOfEvidence(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
                                        const std::unordered_map<Graph::NodeIndex, int> &evidence);
-  /*
-   * Runs the main algorithm that creates the jani data.
-   */
-  virtual JaniCreationData runTransformation(const Graph &graph, const std::vector<Graph::NodeIndex> &topologicalOrdering,
-                                     const std::unordered_map<Graph::NodeIndex , int> &evidence,
-                                     const std::vector<bool> &hypothesis);
 
   /*
    * Processes parents of the current node of the topological ordering. If the current node

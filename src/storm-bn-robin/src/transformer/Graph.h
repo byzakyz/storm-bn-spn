@@ -11,6 +11,7 @@
 #include <vector>
 #include <unordered_set>
 #include <algorithm>
+#include <map>
 
 class Graph {
 public:
@@ -50,6 +51,9 @@ public:
     return mNodesVector[index].mName;
   }
 
+  //TODO: getIndexOfName
+
+
   /*!
    * Finds index of the first node with given name.
    * @param nodeName Name of the node.
@@ -76,6 +80,8 @@ public:
    */
   std::vector<NodeCount> getCountParentsAllNodes() const;
 
+  std::unordered_map<std::string, NodeCount> getNameToChildrenCountMap() const;
+
 private:
 
   struct Node {
@@ -95,6 +101,8 @@ private:
     NodeIndex mNumberOfValues;
     std::vector<NodeIndex> mParentsVector;
     std::vector<NodeIndex> mChildrenVector;
+    //std::map<std::string, std::string> ancestorValMap;//For SPN transformation
+    //int layerNum;//For SPN transformation
     /*
      * Adds node to childVector if it is not already there.
      */
@@ -109,6 +117,7 @@ private:
 private:
   NodeCount mNumberOfVertices;
   std::vector<Node> mNodesVector;
+  //std::vector<Node> m;
 
 };
 

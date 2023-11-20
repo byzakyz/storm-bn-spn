@@ -33,7 +33,7 @@ public:
 
   std::vector<std::string> getUpdatedProbabilties() const;
 
-  std::map<std::string, std::string> getGuard();
+  std::map<std::string, std::string> getGuard() const;
 
   std::map<std::string, std::string> getValuesMappingToProbabilities();
 
