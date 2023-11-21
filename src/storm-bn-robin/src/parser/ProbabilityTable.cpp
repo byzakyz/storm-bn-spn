@@ -26,6 +26,7 @@ void ProbabilityTable::initialize(std::string declaration, std::map<std::string,
   for (std::string parentName : parentsNames) {
     parents.push_back(allNamesToNodes[parentName]);
   }
+  //build_placeHolderRows();
 }
 
 

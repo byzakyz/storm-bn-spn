@@ -18,7 +18,7 @@ public:
 
   ProbabilityTable();
 
-  void initialize(std::string BIFdeclaration, std::map<std::string, BNNode> nodes);
+  virtual void initialize(std::string BIFdeclaration, std::map<std::string, BNNode> nodes);
 
   ProbabilityTable(const BNNode &node, const std::vector<BNNode> &parents, const std::vector<ProbabilityRow> &rows);
 
@@ -41,15 +41,19 @@ public:
 protected:
   std::vector<ProbabilityRow> probabilityEntries;
   std::string tableDeclaration;
+  std::map<std::string, BNNode> allNamesToNodes;
+  std::vector<std::string> parentsNames;
+  std::vector<BNNode> parents;
+  void build();
   
 private:
   std::string theNodeName;
   BNNode node;
-  std::vector<std::string> parentsNames;
-  std::vector<BNNode> parents;
-  std::map<std::string, BNNode> allNamesToNodes;
+  
+  
+  
 
-  void build();
+  
 
   virtual void parseRows();
   

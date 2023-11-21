@@ -1,4 +1,4 @@
-#include "../jani/JaniFileCreator_SPN.h"
+#include "../jani/JaniFileCreator_SPN2.h"
 
 JaniFileCreator_SPN::JaniFileCreator_SPN(SPNetwork& spNetwork)
 : JaniFileCreator(spNetwork) //, janiData(spNetwork.janiData) // This will initialize the base class part of the object
@@ -41,30 +41,31 @@ std::string JaniFileCreator_SPN::createEdge(std::string tableName, std::vector<s
                                         std::vector<std::string> parentValues,
                                         std::vector<std::string> rowProbabilities, int order) {
   std::string retValue;
-  std::string temp;
-  temp += createGuard(std::move(parentsName), std::move(parentValues));
-  temp += createDestinations(std::move(tableName), std::move(rowProbabilities));
-  temp += TAB + CLOSING_BRACE + COMMA + NEW_LINE;
-
-  if(order==0){
-    retValue += TAB + OPENING_BRACE + NEW_LINE;
-    retValue += TAB + TAB + LOCATION + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(order) + DOUBLE_QUOTE +
-                COMMA + NEW_LINE;
-    retValue += temp;
+  retValue += TAB + OPENING_BRACE + NEW_LINE;
+  retValue += TAB + TAB + LOCATION + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(order) + DOUBLE_QUOTE +
+              COMMA + NEW_LINE;
+  retValue += createGuard(std::move(parentsName), std::move(parentValues));
+  //make 2 cases, one for placeHolder MC node, exmpl if only one row probability and its 1
+  if(rowProbabilities.size() == 1 && rowProbabilities[0] == "1"){
+    retValue += createDestination_Placeholder(tableName);
   }else{
-    int incomingIndex;
-    for (const auto& incoming : janiData.nodeToIngoingNodesMap.at(tableName)){
-      incomingIndex = bnNetwork.getTopologicalOrder(incoming);
-      retValue += TAB + OPENING_BRACE + NEW_LINE;
-      retValue += TAB + TAB + LOCATION + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(incomingIndex) + DOUBLE_QUOTE +
-                  COMMA + NEW_LINE;
-      retValue += temp;
-    }
+    retValue += createDestinations(std::move(tableName), std::move(rowProbabilities));
   }
+  //create_PlaceHolderDest()
+  retValue += TAB + CLOSING_BRACE + COMMA + NEW_LINE;
   return retValue;
 }
 
-std::string JaniFileCreator_SPN::createProbabilityAssignment(const std::string& tableName, std::string prob, int index) {
+std::string JaniFileCreator_SPN::createDestination_Placeholder(const std::string& tableName) {
+  std::string retValue;
+  retValue += TAB + TAB + DESTINATIONS + COLON + SPACE + OPENING_BRAKET + NEW_LINE;
+  retValue += createProbabilityAssignment(tableName, "1", -1);//PARENT NAME FOR THIS ROW AS PARAM NEEDED.
+  retValue.erase(retValue.end() - 2, retValue.end() - 1);
+  retValue += TAB + TAB + CLOSING_BRAKET + NEW_LINE;
+  return retValue;
+}
+
+/*std::string JaniFileCreator_SPN::createProbabilityAssignment(const std::string& tableName, std::string prob, int index) {
   std::string retValue;
   retValue += TAB + TAB + OPENING_BRACE + NEW_LINE;
   int position = bnNetwork.getTopologicalOrder(tableName);//delivers following index for us
@@ -107,15 +108,11 @@ std::string JaniFileCreator_SPN::createProbabilityAssignment(const std::string& 
     retValue += TAB + TAB + TAB + TAB + REF + COLON + SPACE + DOUBLE_QUOTE + tableName + DOUBLE_QUOTE + COMMA + NEW_LINE;
     retValue += TAB + TAB + TAB + TAB + VALUE + COLON + SPACE + std::to_string(index) + NEW_LINE;
     retValue += TAB + TAB + TAB + CLOSING_BRACE;
-      /*Nodes to reset is different for SPN:*/
-    auto layerIndex = janiData.nodeToLayerMap.at(tableName);
-    auto searchReset = janiData.layerToNodesToResetMap.find(layerIndex);
-
-    //auto searchReset = bnNetwork.janiData.positionToNodesToResetMap.find(position);
-    if (searchReset == janiData.layerToNodesToResetMap.end()) {
+    auto searchReset = bnNetwork.janiData.positionToNodesToResetMap.find(position);
+    if (searchReset == bnNetwork.janiData.positionToNodesToResetMap.end()) {
       retValue += NEW_LINE;
     } else {
-      for (auto &name : searchReset->second) {
+      for (auto &&name : searchReset->second) {
         retValue += COMMA + NEW_LINE;
         retValue += TAB + TAB + TAB + OPENING_BRACE + NEW_LINE;
         retValue += TAB + TAB + TAB + TAB + REF + COLON + SPACE + DOUBLE_QUOTE + name + DOUBLE_QUOTE + COMMA + NEW_LINE;
@@ -130,5 +127,5 @@ std::string JaniFileCreator_SPN::createProbabilityAssignment(const std::string& 
 
   retValue += TAB + TAB + CLOSING_BRACE + COMMA + NEW_LINE;
   return retValue;
-}
+}*/
 

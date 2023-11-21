@@ -6,6 +6,12 @@ ProbabilityRow_SPN::ProbabilityRow_SPN()
     
 }
 
+// New constructor mirroring the second constructor of ProbabilityRow
+ProbabilityRow_SPN::ProbabilityRow_SPN(std::vector<std::string> parentsValues, std::vector<std::string> probabilities, std::vector<std::string> parentNames, std::vector<std::string> possibleValues)
+    : ProbabilityRow(parentsValues, probabilities, parentNames, possibleValues) {
+    // Any additional initialization specific to ProbabilityRow_SPN
+}
+
 void ProbabilityRow_SPN::setParentsValues() {
   BIF bif;
   Utils util;

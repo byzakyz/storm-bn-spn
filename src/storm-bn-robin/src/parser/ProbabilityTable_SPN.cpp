@@ -7,6 +7,34 @@ ProbabilityTable_SPN::ProbabilityTable_SPN()
     :ProbabilityTable() {
 }
 
+void ProbabilityTable_SPN::initialize(std::string declaration, std::map<std::string, BNNode> nodes){
+  tableDeclaration = declaration;
+  allNamesToNodes = nodes;
+  build();
+  for (std::string parentName : parentsNames) {
+    parents.push_back(allNamesToNodes[parentName]);
+  }
+  build_placeHolderRows();
+}
+
+//create new rows as placeholders for missing parent values:
+void ProbabilityTable_SPN::build_placeHolderRows(){
+  const auto& nodes = getParents();
+  //TODO: dont run if handling a RV, since SPN complete s RV will have both values of its parents used in cpt
+  for(const auto& parNode : nodes){
+    const auto& variableValueList = parNode.getVariableValueList();
+    const auto& name = parNode.getNodeName();
+    const auto& usedValues = guards.at(name);
+    for (const auto& item : variableValueList) {
+      if (std::find(usedValues.begin(), usedValues.end(), item) == usedValues.end()) {
+          // If item is not used, create row as placeHolder
+          ProbabilityRow_SPN row({item}, {"1"}, {name}, getPossibleValues());
+          probabilityEntries.push_back(row);
+      }
+    }
+  }
+}
+
 // Override the parseRows method
 void ProbabilityTable_SPN::parseRows() {
   Utils util;
@@ -28,5 +56,11 @@ void ProbabilityTable_SPN::parseRows() {
     row.initialize(token, getParentsNames(), getNode().getVariableValueList());
     probabilityEntries.push_back(row);
     s.erase(0, pos + delimiter.length());
+
+    //Keep track of used values of each parent, to be able to assign placeholder rows for unused values:
+    const auto& guard = row.getGuard();
+    for(auto &guard_el : guard){
+      guards[guard_el.first].push_back(guard_el.second);
+    }
   }
 }

@@ -8,7 +8,7 @@
 #include <string>
 #include "storm-bn-robin/src/QueriesCreator.h"
 #include "storm-bn-robin/src/jani/JaniFileCreator.h"
-#include "storm-bn-robin/src/jani/JaniFileCreator_SPN.h"
+#include "storm-bn-robin/src/jani/JaniFileCreator_SPN2.h"
 #include "storm-bn-robin/src/VariablesFileCreator.h"
 
 

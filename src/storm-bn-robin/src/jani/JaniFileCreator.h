@@ -38,6 +38,8 @@ protected:
 
   std::string convertExpressionToJaniFormat(std::string exp);
 
+  std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index);
+
 
 private:
   
@@ -68,8 +70,6 @@ private:
   std::string
   createCondition(std::vector<std::string> parentNamesSubVector, std::vector<std::string> parentValueSubVector);
 
-  
-  virtual std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index);
 
   std::string createSystem();
 

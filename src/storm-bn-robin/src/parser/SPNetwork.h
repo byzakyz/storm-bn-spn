@@ -13,7 +13,7 @@
 class SPNetwork: public BNNetwork {
   public: 
     SPNetwork();
-    SPNTransformer::JaniCreationData janiData;
+    
     
   protected:
     void createTableList() override;

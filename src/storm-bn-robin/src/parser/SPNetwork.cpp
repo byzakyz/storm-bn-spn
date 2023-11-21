@@ -32,7 +32,7 @@ void SPNetwork::createTableList()
 
 void SPNetwork::sortTheTables()
 {
-  SPNTransformer transformer;
+  BayesianNetworkTransformer transformer;
   if (topologicalOrdering.empty())
   {
     //HERE THE TOPOLOGICAL ORDERING IS CALCULATED
@@ -63,5 +63,6 @@ void SPNetwork::sortTheTables()
     order++;
     sortStack.pop();
   }
-  janiData = transformer.runAlgorithm(dag, topologicalOrdering, createEvidenceIndexToValue(), createHypothesisIndicator(), sortedProbabilityTables, nodeTopologicalOrder);
+  janiData = transformer.runAlgorithm(dag, topologicalOrdering, createEvidenceIndexToValue(), createHypothesisIndicator());
+
 }

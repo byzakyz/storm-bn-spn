@@ -10,12 +10,16 @@ public:
 
 protected:
     // const SPNTransformer::JaniCreationData& janiData;
-    std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index) override;
+    //std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index) override;
     std::string createAutomata() override;
     std::string createEdge(std::string tableName, std::vector<std::string> parentsName,
                                         std::vector<std::string> parentValues,
                                         std::vector<std::string> rowProbabilities, int order) override;
     // If there are additional member functions specific to SPNetwork, declare them here
+
+private:
+
+    std::string createDestination_Placeholder(const std::string& tableName);
 };
 
 #endif // SPJANIFILECREATOR_H

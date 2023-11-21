@@ -70,7 +70,7 @@ std::string JaniFileCreator::createVariablesBlock() {
   retValue += VARIABLES + COLON + SPACE + OPENING_BRAKET + NEW_LINE;
   for (const BNNode& node: bnNetwork.getNodes()) {
     retValue += TAB + createVariableBlock(node.getNodeName(), node.getNumberOfValues());
-    retValue += TAB + createTransientVariableBlock(node.getNodeName(), node.getNumberOfValues());
+    //retValue += TAB + createTransientVariableBlock(node.getNodeName(), node.getNumberOfValues());
   }
 
   if (networkSize > 0) {
@@ -129,9 +129,10 @@ std::string JaniFileCreator::createLocationsWithTransientValues() {
     for (int i = 1; i <= networkSize; i++) {
 
         retValue += TAB + TAB + OPENING_BRACE + NEW_LINE;
-        retValue += TAB + TAB + NAME + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(i) + DOUBLE_QUOTE + COMMA + NEW_LINE;
-
+        //retValue += TAB + TAB + NAME + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(i) + DOUBLE_QUOTE + COMMA + NEW_LINE;
+        retValue += TAB + TAB + NAME + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(i) + DOUBLE_QUOTE + NEW_LINE;
         /* defining transient values in each location */
+        /*
         retValue += TAB + TAB + TRANSIENTVALUES + COLON + SPACE + OPENING_BRAKET + NEW_LINE;
         const ProbabilityTable table = tables.at(i - 1);
         int numberOfValues = table.getPossibleValues().size();
@@ -143,16 +144,17 @@ std::string JaniFileCreator::createLocationsWithTransientValues() {
             retValue += TAB + TAB + TAB + TAB + OP + COLON + SPACE + EQUALS + COMMA + NEW_LINE;
             retValue += TAB + TAB + TAB + TAB + LEFT + COLON + SPACE + DOUBLE_QUOTE + name + DOUBLE_QUOTE + COMMA + NEW_LINE;
             retValue += TAB + TAB + TAB + TAB + RIGHT + COLON + SPACE + std::to_string(j) + NEW_LINE;
-            retValue += TAB + TAB + TAB + CLOSING_BRACE + NEW_LINE; /* end of value definition of the current transient variable */
-            retValue += TAB + TAB + CLOSING_BRACE + COMMA + NEW_LINE; /* end of definition of the current transient value */
+            retValue += TAB + TAB + TAB + CLOSING_BRACE + NEW_LINE; // end of value definition of the current transient variable
+            retValue += TAB + TAB + CLOSING_BRACE + COMMA + NEW_LINE; //end of definition of the current transient value
         }
 
-        /* remove extra comma */
+        //remove extra comma
         if (numberOfValues > 0) {
             retValue.erase(retValue.end() - 2, retValue.end() - 1);
         }
 
-        retValue += TAB + TAB + CLOSING_BRAKET + NEW_LINE; /* end of transient values */
+        retValue += TAB + TAB + CLOSING_BRAKET + NEW_LINE; */
+        /* end of transient values */
 
         retValue += TAB + TAB + CLOSING_BRACE + COMMA + NEW_LINE; /* end of location definition */
     }
@@ -209,12 +211,10 @@ std::string JaniFileCreator::createEdge(std::string tableName, std::vector<std::
                                         std::vector<std::string> rowProbabilities, int order) {
   std::string retValue;
   retValue += TAB + OPENING_BRACE + NEW_LINE;
-  //INSTEAD OF ORDER, NECESSARY LOC SHOULD BE FOUND!!! TODO 
   retValue += TAB + TAB + LOCATION + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(order) + DOUBLE_QUOTE +
               COMMA + NEW_LINE;
   retValue += createGuard(std::move(parentsName), std::move(parentValues));
   retValue += createDestinations(std::move(tableName), std::move(rowProbabilities));
-
   retValue += TAB + CLOSING_BRACE + COMMA + NEW_LINE;
   return retValue;
 }
@@ -278,7 +278,7 @@ std::string JaniFileCreator::createCondition(std::vector<std::string> parentName
   return retValue;
 }
 
-//PARENT NAME FOR THIS ROW AS PARAM NEEDED.
+
 std::string JaniFileCreator::createDestinations(const std::string& tableName, const std::vector<std::string>& rowProbabilities) {
   std::string retValue;
   retValue += TAB + TAB + DESTINATIONS + COLON + SPACE + OPENING_BRAKET + NEW_LINE;
@@ -295,9 +295,9 @@ std::string JaniFileCreator::createDestinations(const std::string& tableName, co
 }
 
 std::string JaniFileCreator::createProbabilityAssignment(const std::string& tableName, std::string prob, int index) {
-  std::string retValue;
-  retValue += TAB + TAB + OPENING_BRACE + NEW_LINE;
-  int position = bnNetwork.getTopologicalOrder(tableName);//delivers following index for us
+  std::string retValue;//
+  retValue += TAB + TAB + OPENING_BRACE + NEW_LINE;//
+  int position = bnNetwork.getTopologicalOrder(tableName);//
 
   auto search = bnNetwork.janiData.positionToEvidenceValue.find(position - 1);
   if (search != bnNetwork.janiData.positionToEvidenceValue.end() && index != search->second) {
@@ -305,18 +305,17 @@ std::string JaniFileCreator::createProbabilityAssignment(const std::string& tabl
                 DOUBLE_QUOTE + COMMA + NEW_LINE;
   } else {
     retValue += TAB + TAB + TAB + LOCATION + COLON + SPACE + DOUBLE_QUOTE + DEFAULT_LOC + std::to_string(position) +
-                      DOUBLE_QUOTE + COMMA + NEW_LINE;
+                      DOUBLE_QUOTE + COMMA + NEW_LINE;//
   }
 
   // in nodes to remove pos is 0 indexed
-  --position;
-  std::string probInJaniFormat = convertExpressionToJaniFormat(std::move(prob));
-  retValue += TAB + TAB + TAB + PROBABILITY + COLON + SPACE + OPENING_BRACE + EXP + COLON + SPACE + probInJaniFormat +
-              CLOSING_BRACE + COMMA + NEW_LINE;
-  retValue += TAB + TAB + TAB + ASSIGNMENTS + COLON + SPACE + OPENING_BRAKET + NEW_LINE;
+  --position;//
+  std::string probInJaniFormat = convertExpressionToJaniFormat(std::move(prob));//
+  retValue += TAB + TAB + TAB + PROBABILITY + COLON + SPACE + OPENING_BRACE + EXP + COLON + SPACE + probInJaniFormat +//
+              CLOSING_BRACE + COMMA + NEW_LINE;//
+  retValue += TAB + TAB + TAB + ASSIGNMENTS + COLON + SPACE + OPENING_BRAKET + NEW_LINE;//
 
   if (search != bnNetwork.janiData.positionToEvidenceValue.end() && index != search->second) {
-    // FOR SPN: if we were to use this code line, positionToKnownNodesMap changes for each row since rows of same table can have different parents
     auto searchKnown = bnNetwork.janiData.positionToKnownNodesMap.find(position);
     if (searchKnown != bnNetwork.janiData.positionToNodesToResetMap.end()) {
       retValue += TAB + TAB + TAB + OPENING_BRACE + NEW_LINE;
@@ -333,16 +332,20 @@ std::string JaniFileCreator::createProbabilityAssignment(const std::string& tabl
       retValue += NEW_LINE;
     }
   } else {
-    retValue += TAB + TAB + TAB + OPENING_BRACE + NEW_LINE;
-    retValue += TAB + TAB + TAB + TAB + REF + COLON + SPACE + DOUBLE_QUOTE + tableName + DOUBLE_QUOTE + COMMA + NEW_LINE;
-    retValue += TAB + TAB + TAB + TAB + VALUE + COLON + SPACE + std::to_string(index) + NEW_LINE;
-    retValue += TAB + TAB + TAB + CLOSING_BRACE;
+    if(index >=0){
+      retValue += TAB + TAB + TAB + OPENING_BRACE + NEW_LINE;
+      retValue += TAB + TAB + TAB + TAB + REF + COLON + SPACE + DOUBLE_QUOTE + tableName + DOUBLE_QUOTE + COMMA + NEW_LINE;
+      retValue += TAB + TAB + TAB + TAB + VALUE + COLON + SPACE + std::to_string(index) + NEW_LINE;
+      retValue += TAB + TAB + TAB + CLOSING_BRACE;
+    }
     auto searchReset = bnNetwork.janiData.positionToNodesToResetMap.find(position);
     if (searchReset == bnNetwork.janiData.positionToNodesToResetMap.end()) {
       retValue += NEW_LINE;
     } else {
       for (auto &&name : searchReset->second) {
-        retValue += COMMA + NEW_LINE;
+        if(index >= 0){
+          retValue += COMMA + NEW_LINE;
+        }
         retValue += TAB + TAB + TAB + OPENING_BRACE + NEW_LINE;
         retValue += TAB + TAB + TAB + TAB + REF + COLON + SPACE + DOUBLE_QUOTE + name + DOUBLE_QUOTE + COMMA + NEW_LINE;
         retValue += TAB + TAB + TAB + TAB + VALUE + COLON + SPACE + std::to_string(-1) + NEW_LINE;
