@@ -36,7 +36,9 @@ void SPNetwork::sortTheTables()
   if (topologicalOrdering.empty())
   {
     //HERE THE TOPOLOGICAL ORDERING IS CALCULATED
-    topologicalOrdering = {0,1,3,5,6,2,4,7,8};//TopologicalOrderingFinder::getTopologicalOrdering(dag);
+    //topologicalOrdering = {0,1,2,3};//For example3
+    topologicalOrdering = {0,1,3,5,6,2,4,7,8}; //For tesst
+    //TopologicalOrderingFinder::getTopologicalOrdering(dag);
   }
   std::cout << "\nExpected Size of DTMC: "
             << TopologicalOrderingFinder::calculateSizeTopologicalOrdering(dag, topologicalOrdering) << "\n";

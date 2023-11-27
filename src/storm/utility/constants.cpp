@@ -136,6 +136,12 @@ ValueType simplify(ValueType value) {
     // supposed to happen here, the templated function can be specialized for this particular type.
     return value;
 }
+/*
+template<typename IndexType, typename ValueType>// modified
+auto simplify(storm::storage::MatrixEntry<IndexType, ValueType>&& matrixEntry) -> decltype(auto) {
+    simplify(std::forward<storm::storage::MatrixEntry<IndexType, ValueType>>(matrixEntry.getValue()));
+    return std::forward<storm::storage::MatrixEntry<IndexType, ValueType>>(matrixEntry);
+}*/
 
 template<typename IndexType, typename ValueType>
 storm::storage::MatrixEntry<IndexType, ValueType> simplify(storm::storage::MatrixEntry<IndexType, ValueType> matrixEntry) {
