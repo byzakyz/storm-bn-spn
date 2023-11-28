@@ -5,6 +5,7 @@
 
 #include "ProbabilityTable.h"
 #include "ProbabilityRow_SPN.h"
+#include <unordered_map>
 
 class ProbabilityTable_SPN : public ProbabilityTable {
 public:
