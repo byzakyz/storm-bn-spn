@@ -60,6 +60,8 @@ const std::string OP = "\"op\"";
 const std::string LEFT = "\"left\"";
 const std::string RIGHT = "\"right\"";
 const std::string EQUALS = "\"=\"";
+//const std::string NOT_EQUALS = "\"=\"";
+const std::string NOT_EQUALS = "\"≠\"";
 const std::string AND = "\"∧\"";
 const std::string OR = "\"∨\"";
 

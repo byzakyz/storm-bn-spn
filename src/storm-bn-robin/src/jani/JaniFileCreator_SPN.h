@@ -19,6 +19,9 @@ protected:
 
 private:
     int maxOrder;
+    std::string createGuard_Placeholder(const std::vector<std::string>& parentNamesVector, std::vector<std::string> parentValuesVector);
+    std::string createCondition_Placeholder(std::vector<std::string> parentNamesVector,
+                                             std::vector<std::string> parentValuesVector);
     std::string createDestination_Placeholder(const std::string& tableName);
     std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index) override;
 };

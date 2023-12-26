@@ -14,9 +14,10 @@ void ProbabilityTable_SPN::initialize(std::string declaration, std::map<std::str
   for (std::string parentName : parentsNames) {
     parents.push_back(allNamesToNodes[parentName]);
   }
-  build_placeHolderRows();
+  //build_placeHolderRows();
 }
 
+/*
 //create new rows as placeholders for missing parent values:
 void ProbabilityTable_SPN::build_placeHolderRows(){
   const auto& nodes = getParents();
@@ -33,7 +34,7 @@ void ProbabilityTable_SPN::build_placeHolderRows(){
       }
     }
   }
-}
+}*/
 
 // Override the parseRows method
 void ProbabilityTable_SPN::parseRows() {
@@ -58,9 +59,9 @@ void ProbabilityTable_SPN::parseRows() {
     s.erase(0, pos + delimiter.length());
 
     //Keep track of used values of each parent, to be able to assign placeholder rows for unused values:
-    const auto& guard = row.getGuard();
+    /*const auto& guard = row.getGuard();
     for(auto &guard_el : guard){
       guards[guard_el.first].push_back(guard_el.second);
-    }
+    }*/
   }
 }
