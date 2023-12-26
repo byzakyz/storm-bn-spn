@@ -8,16 +8,18 @@
 #include "../transformer/SPNTransformer.h"
 #include <stack>
 
-
-
 class SPNetwork: public BNNetwork {
   public: 
     SPNetwork();
-    
+    void setHeuristic();
     
   protected:
     void createTableList() override;
     void sortTheTables() override;
+
+  private:
+    void calculate_Scopes(Graph::NodeIndex index);
+    bool use_heuristic_scopes = false;
     
   
 };

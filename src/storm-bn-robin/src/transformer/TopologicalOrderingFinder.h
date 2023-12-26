@@ -191,13 +191,8 @@ public:
     }
   };
 
+
 private:
-
-  /*
-   * Initializes algorithm data.
-   */
-  static void initialize(Graph const &graph, AlgorithmData &data);
-
   /*
    * Runs algorithm. Firstly, adds the startingNode to topological ordering
    * and then while it is still possible chooses one node from possible nodes
@@ -209,18 +204,23 @@ private:
                Graph::NodeIndex startingNode);
 
   /*
+   * Adds node to the topological ordering, and changes the algorithm data
+   * accordingly.
+   */
+  static void addNode(const Graph &graph, std::vector<Graph::NodeIndex> &ordering, AlgorithmData &data,
+          Graph::NodeIndex nodeToAdd);
+  /*
+   * Initializes algorithm data.
+   */
+  static void initialize(Graph const &graph, AlgorithmData &data);
+
+  /*
    * Chooses the next node from possible nodes that should be added to the
    * topological ordering.
    */
   static Graph::NodeIndex findNextNode(const Graph &graph, AlgorithmData &data);
 
-  /*
-   * Adds node to the topological ordering, and changes the algorithm data
-   * accordingly.
-   */
-  static void
-  addNode(const Graph &graph, std::vector<Graph::NodeIndex> &ordering, AlgorithmData &data,
-          Graph::NodeIndex nodeToAdd);
+  
 
   /*
    * When a node is added to the topological ordering, for each of its children

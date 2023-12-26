@@ -34,6 +34,9 @@ std::vector<Graph::NodeIndex> TopologicalOrderingFinder::getTopologicalOrdering(
       }
       topologicalOrdering.clear();
     }
+    for (size_t i = 0; i < topologicalOrderingBest.size(); ++i) {
+        std::cout << topologicalOrderingBest[i] << " ";
+    }
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
     std::cout << "Time taken by function: "
@@ -253,6 +256,12 @@ void
 TopologicalOrderingFinder::runAlgorithm(const Graph &graph, std::vector<Graph::NodeIndex> &ordering, AlgorithmData data,
                                         Graph::NodeIndex startingNode) {
   addNode(graph, ordering, data, startingNode);
+  if(!graph.topoOrder.empty()){
+        for(Graph::NodeIndex index : graph.topoOrder){
+            TopologicalOrderingFinder::addNode(graph, ordering, data, index);
+        }
+  }
+  //auto order = graph.findTopoOrder_Scopes()
   while (!data.mPossibleNodes.empty()) {
     addNode(graph, ordering, data, findNextNode(graph, data));
   }
@@ -282,7 +291,7 @@ TopologicalOrderingFinder::addNode(const Graph &graph, std::vector<Graph::NodeIn
       //mark ancestors as visited
       propagateIsVisited(graph, child, data);
     }
-    //children of current node are added to mOpenSet
+    //children of current node were added to mOpenSet, got to remember the values of this node for its children
     data.mOpenSet.push_back(node);
   }
   recalculateParentsWaiting(graph, data);

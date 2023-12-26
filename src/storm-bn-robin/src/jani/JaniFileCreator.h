@@ -34,11 +34,9 @@ protected:
 
   std::string createGuard(const std::vector<std::string>& parentNamesVector, std::vector<std::string> parentValuesVector);
 
-  std::string createDestinations(const std::string& tableName, const std::vector<std::string>& rowProbabilities);
-
   std::string convertExpressionToJaniFormat(std::string exp);
 
-  std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index);
+  std::string createDestinations(const std::string& tableName, const std::vector<std::string>& rowProbabilities);
 
 
 private:
@@ -66,6 +64,8 @@ private:
   
   virtual std::string createEdge(std::string tableName, std::vector<std::string> parentsName, std::vector<std::string> parentValues,
              std::vector<std::string> rowProbabilities, int order);
+
+  virtual std::string createProbabilityAssignment(const std::string& tableName, std::string prob, int index);
 
   std::string
   createCondition(std::vector<std::string> parentNamesSubVector, std::vector<std::string> parentValueSubVector);

@@ -1,0 +1,60 @@
+network unknown {
+}
+variable s1 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s2 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s3 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s4 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s5 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable x1 {
+  type discrete [ 2 ] { yes, no };
+}
+variable x2 {
+  type discrete [ 2 ] { yes, no };
+}
+variable x3 {
+  type discrete [ 2 ] { yes, no };
+}
+probability ( s1 ) {
+  table 0.4, 0.6;
+}
+probability ( x1 | s1 ) {
+  (0) 0.5, 0.5;  
+  (1) 0.2, 0.8;
+}
+probability ( s2 | s1 ) {
+  (0) 0.2, 0.8;
+}
+probability ( s4 | s1 ) {
+  (1) 0.5, 0.5;
+}
+probability ( x2 | s2, s4 ) {
+  (s2=0) 1, 0;  
+  (s2=1) 0.6, 0.4;
+  (s4=0) 1, 0;
+  (s4=1) 0.6, 0.4;
+}
+probability ( s3 | s2, s4 ) {
+  (s2=0) 0.3, 0.7;
+  (s4=0) 0.3, 0.7;
+}
+probability ( s5 | s2, s4 ) {
+  (s2=1) 0.8, 0.2;
+  (s4=1) 0.8, 0.2;
+}
+probability ( x3 | s3, s5 ) {
+  (s3=0) 0.2, 0.8;
+  (s3=1) 0, 1;
+  (s5=0) 0.2, 0.8;
+  (s5=1) 0, 1;
+}
+

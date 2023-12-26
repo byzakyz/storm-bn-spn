@@ -19,6 +19,8 @@ public:
   using NodeIndex = int32_t;
   using NodeCount = int32_t;
 
+  std::vector<NodeIndex> topoOrder;
+
   Graph() { mNumberOfVertices = 0; };
 
   /*!
@@ -52,8 +54,11 @@ public:
     return mNodesVector[index].mName;
   }
 
-  //TODO: getIndexOfName
+  const std::unordered_set<NodeIndex>& getScope(NodeIndex index) const {
+    return mNodesVector[index].mScopeSet;
+  }
 
+  void calculateScope();
 
   /*!
    * Finds index of the first node with given name.
@@ -83,6 +88,9 @@ public:
 
   std::unordered_map<std::string, NodeCount> getNameToChildrenCountMap() const;
 
+  void findTopoOrder_Scopes();
+
+
 private:
 
   struct Node {
@@ -102,8 +110,8 @@ private:
     NodeIndex mNumberOfValues;
     std::vector<NodeIndex> mParentsVector;
     std::vector<NodeIndex> mChildrenVector;
-    //std::map<std::string, std::string> ancestorValMap;//For SPN transformation
-    //int layerNum;//For SPN transformation
+
+    std::unordered_set<NodeIndex> mScopeSet; //needed for SPN topological order 
     /*
      * Adds node to childVector if it is not already there.
      */
@@ -112,14 +120,28 @@ private:
      * Adds node to parentVector if it is not already there.
      */
     void addParent(NodeIndex index);
-    void addIfUnique(NodeIndex index, std::vector<Graph::NodeIndex> &vector);
+    void addIfUnique(NodeIndex index, std::vector<NodeIndex> &vector);
   };
 
-private:
+
   NodeCount mNumberOfVertices;
   std::vector<Node> mNodesVector;
-  //std::vector<Node> m;
 
+  std::vector<std::pair<std::vector<NodeIndex>, int>> sortedScopes;
+  NodeIndex root = -1;
+
+  std::unordered_map<NodeIndex, std::unordered_set<NodeIndex>> nodeToScopeMap;
+  std::map<std::vector<NodeIndex>, std::unordered_set<NodeIndex>> scopeToNodesMap;
+  std::map<std::vector<NodeIndex>, int> scopeFrequencyMap;
+
+  std::unordered_set<NodeIndex> calculateScopeOfNode(NodeIndex index);
+
+  void addToScope(NodeIndex index, std::unordered_set <NodeIndex> scopes){
+    mNodesVector[index].mScopeSet.insert(scopes.begin(), scopes.end());
+  }
+
+  std::unordered_set<NodeIndex> findCommonScopes(std::unordered_set<NodeIndex>& currentNodes, 
+    const std::vector<NodeIndex>& scopeToLookFor);
 };
 
 

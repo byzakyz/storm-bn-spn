@@ -8,7 +8,7 @@
 #include <string>
 #include "storm-bn-robin/src/QueriesCreator.h"
 #include "storm-bn-robin/src/jani/JaniFileCreator.h"
-#include "storm-bn-robin/src/jani/JaniFileCreator_SPN2.h"
+#include "storm-bn-robin/src/jani/JaniFileCreator_SPN.h"
 #include "storm-bn-robin/src/VariablesFileCreator.h"
 
 
@@ -53,17 +53,23 @@ int main(const int argc, const char **argv) {
             return 1; // Exit with error code.
         }
         networkName = argv[1]; // Take network name from the command-line argument.
+
         if (findOrdering) {
             variableFile.clear();
         } else {
             variableFile = folder + networkName + ".var"; 
         }
+
         //BNNetwork network(folder, networkName, ".bif", isTailored, variableFile);
         SPNetwork network;
+        if (argc == 3){
+            if(strcmp(argv[2], "use_scopes") == 0){
+                network.setHeuristic();
+            }    
+        }
         network.initialize(folder, networkName, ".bif", isTailored, variableFile);
         std::string fileContent = VariablesFileCreator::createVariableFileContent(network.getSortedProbabilityTables());
         if (!fileContent.empty()) {
-            //JaniFileCreator creator(network);//This is the part not working right know, please help fix this part
             JaniFileCreator_SPN creator(network);
             util.writeToFile(creator.create(), folder + networkName + ".jani");
         }

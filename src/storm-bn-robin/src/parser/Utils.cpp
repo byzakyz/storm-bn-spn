@@ -60,8 +60,10 @@ int Utils::getPos(std::vector<std::string> vector, std::string element) {
   std::vector<std::string>::iterator it = std::find(vector.begin(), vector.end(), element);
   if (it != vector.end());
     /* std::cout << "Element Found" << std::endl; */
-  else
+  else{
     std::cout << "Element Not Found" << std::endl;
+    return -1;
+  }
   index = std::distance(vector.begin(), it);
   return index;
 }

@@ -1,0 +1,321 @@
+{
+	"jani-version": 1,
+	"name": "tesst.jani",
+	"type": "dtmc",
+	"features": [ "derived-operators" ],
+"variables": [
+	{
+	"name": "s1",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "s2",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "s3",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "s4",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "s5",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "x1",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "x2",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "x3",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	},
+	{
+	"name": "x4",
+	"type": {
+		"base": "int",
+		"kind": "bounded",
+		"lower-bound": -1,
+		"upper-bound": 1
+	},
+	"initial-value": -1
+	}
+],
+"properties": [
+],
+"automata": [
+{
+	"name": "tesst",
+	"locations": [
+		{
+		"name": "loc0"
+		},
+		{
+		"name": "loc1"
+		},
+		{
+		"name": "loc2"
+		},
+		{
+		"name": "loc3"
+		},
+		{
+		"name": "loc4"
+		},
+		{
+		"name": "loc5"
+		},
+		{
+		"name": "loc6"
+		},
+		{
+		"name": "loc7"
+		},
+		{
+		"name": "loc8"
+		},
+		{
+		"name": "loc9"
+		}
+],
+	"initial-locations": ["loc0"],
+	"edges": [
+	{
+		"location": "loc0",
+		"destinations": [
+		{
+			"location": "loc1",
+			"probability": {"exp": 0.4},
+			"assignments": [
+			{
+				"ref": "s1",
+				"value": 0
+			}
+			]
+		},
+		{
+			"location": "loc1",
+			"probability": {"exp": 0.6},
+			"assignments": [
+			{
+				"ref": "s1",
+				"value": 1
+			}
+			]
+		}
+		]
+	},
+	{
+		"location": "loc1",
+		"guard": {
+		"exp": {
+				"op": "=",
+				"left": "s1",
+				"right": 0
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc2",
+			"probability": {"exp": 0.5},
+			"assignments": [
+			{
+				"ref": "s2",
+				"value": 0
+			}
+			]
+		},
+		{
+			"location": "loc2",
+			"probability": {"exp": 0.5},
+			"assignments": [
+			{
+				"ref": "s2",
+				"value": 1
+			}
+			]
+		}
+		]
+	},
+	{
+		"location": "loc1",
+		"guard": {
+		"exp": {
+				"op": "=",
+				"left": "s1",
+				"right": 1
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc2",
+			"probability": {"exp": 1},
+			"assignments": [
+
+			]
+		}
+		]
+	},
+	{
+		"location": "loc2",
+		"guard": {
+		"exp": {
+				"op": "=",
+				"left": "s1",
+				"right": 0
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc3",
+			"probability": {"exp": 0.4},
+			"assignments": [
+			{
+				"ref": "s3",
+				"value": 0
+			}
+			]
+		},
+		{
+			"location": "loc3",
+			"probability": {"exp": 0.6},
+			"assignments": [
+			{
+				"ref": "s3",
+				"value": 1
+			}
+			]
+		}
+		]
+	},
+	{
+		"location": "loc2",
+		"guard": {
+		"exp": {
+				"op": "=",
+				"left": "s1",
+				"right": 1
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc3",
+			"probability": {"exp": 1},
+			"assignments": [
+
+			]
+		}
+		]
+	},
+	{
+		"location": "loc3",
+		"guard": {
+		"exp": {
+				"op": "=",
+				"left": "s1",
+				"right": 1
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc4",
+			"probability": {"exp": 0.6},
+			"assignments": [
+			{
+				"ref": "s4",
+				"value": 0
+			}
+			]
+		},
+		{
+			"location": "loc4",
+			"probability": {"exp": 0.4},
+			"assignments": [
+			{
+				"ref": "s4",
+				"value": 1
+			}
+			]
+		}
+		]
+	},
+	{
+		"location": "loc3",
+		"guard": {
+		"exp": {
+				"op": "=",
+				"left": "s1",
+				"right": 0
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc4",
+			"probability": {"exp": 1},
+			"assignments": [
+
+			]
+		}
+		]
+	}
+	]
+}
+],
+"system": {
+	"elements": [ {"automaton": "tesst"} ]
+}
+}
