@@ -44,7 +44,9 @@ void SPNetwork::sortTheTables()
     //topologicalOrdering = {0,1,2,3,4,5,6,7};//example2
     //topologicalOrdering = {0,1,2,7,3,4,6,5};//example2_SPFlow
     //topologicalOrdering = {0,1,2,3};//For example3
-    //topologicalOrdering = {0,1,3,5,6,2,4,7,8}; //For tesst
+    //topologicalOrdering = {0,1,3,5,6,2,4,7,8}; //For example1 s0,s1,s3,x0,x1,s2,s4,x2,x3
+    //topologicalOrdering = {0,1,2,3,4,5,6,7,8}; //For example1 s0,s1,s2,s3,s4,x0,x1,x2,x3
+
     //topologicalOrdering = {0,1,2,30,4,17,22,33,13,10,18,31,32,3,23,5,19,14,28,25,20,15,12,26,24,29,11,21,9,8,16,27,7,6};
 
     if(use_heuristic_scopes){

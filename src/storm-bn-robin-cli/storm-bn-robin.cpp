@@ -61,15 +61,17 @@ int main(const int argc, const char **argv) {
         }
 
         //BNNetwork network(folder, networkName, ".bif", isTailored, variableFile);
+        //BNNetwork network;
         SPNetwork network;
-        if (argc == 3){
+        /*if (argc == 3){
             if(strcmp(argv[2], "use_scopes") == 0){
                 network.setHeuristic();
             }    
-        }
+        }*/
         network.initialize(folder, networkName, ".bif", isTailored, variableFile);
         std::string fileContent = VariablesFileCreator::createVariableFileContent(network.getSortedProbabilityTables());
         if (!fileContent.empty()) {
+            //JaniFileCreator creator(network);
             JaniFileCreator_SPN creator(network);
             util.writeToFile(creator.create(), folder + networkName + ".jani");
         }

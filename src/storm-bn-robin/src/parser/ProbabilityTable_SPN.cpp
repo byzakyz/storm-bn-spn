@@ -58,10 +58,5 @@ void ProbabilityTable_SPN::parseRows() {
     probabilityEntries.push_back(row);
     s.erase(0, pos + delimiter.length());
 
-    //Keep track of used values of each parent, to be able to assign placeholder rows for unused values:
-    /*const auto& guard = row.getGuard();
-    for(auto &guard_el : guard){
-      guards[guard_el.first].push_back(guard_el.second);
-    }*/
   }
 }

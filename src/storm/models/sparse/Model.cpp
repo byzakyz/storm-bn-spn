@@ -463,21 +463,43 @@ void Model<ValueType, RewardModelType>::writeDotToStream(std::ostream& outStream
 
                 // If we need to print some extra information, do so now.
                 if (includeLabeling || firstValue != nullptr || secondValue != nullptr || hasStateValuations()) {
-                    outStream << "label = \"" << state;
+                    outStream << "label = \""; //<< state;
                     if (hasStateValuations()) {
                         std::string stateInfo = getStateValuations().getStateInfo(state);
+                        //editing
+                        stateInfo = stateInfo.substr(1, stateInfo.length() - 2);
+                        size_t pos = stateInfo.find("\t");
+                        while (pos != std::string::npos) {
+                            stateInfo.replace(pos, 1, "");  // Replace "\t" with an empty string
+                            pos = stateInfo.find("\t", pos);  // Find the next occurrence
+                        }
+                        std::string filteredStateInfo;
+                        std::istringstream ss(stateInfo);
+                        std::string token;
+                        while (std::getline(ss, token, '&')) {
+                            if (token.find("=-1") == std::string::npos && token.find("loc") == std::string::npos) {
+                                if (!filteredStateInfo.empty()) {
+                                    filteredStateInfo += "&";
+                                }
+                                filteredStateInfo += token;
+                            }
+                        }
+                        /*if(!filteredStateInfo.empty()){
+                            filteredStateInfo = "[" + filteredStateInfo + "]";
+                        }*/
+                        //done
                         std::vector<std::string> results;
-                        boost::split(results, stateInfo, [](char c) { return c == ','; });
+                        boost::split(results, filteredStateInfo, [](char c) { return c == ','; });
                         storm::utility::outputFixedWidth(outStream, results, maxWidthLabel);
                     }
-                    outStream << ": ";
+                    //outStream << ": ";
 
                     // Now print the state labeling to the stream if requested.
-                    if (includeLabeling) {
+                    /*if (includeLabeling) {
                         outStream << "{";
                         storm::utility::outputFixedWidth(outStream, this->getLabelsOfState(state), maxWidthLabel);
                         outStream << "}";
-                    }
+                    }*/
 
                     outStream << this->additionalDotStateInfo(state);
 

@@ -1,0 +1,71 @@
+network unknown {
+}
+variable s0 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s1 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s2 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s3 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable s4 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable x0 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable x1 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable x2 {
+  type discrete [ 2 ] { 0, 1 };
+}
+variable x3 {
+  type discrete [ 2 ] { 0, 1 };
+}
+probability ( s0 ) {
+  table 0.4, 0.6;
+}
+probability ( s1 | s0 ) {
+  (0) 0.5, 0.5;
+}
+probability ( s2 | s0 ) {
+  (0) 0.4, 0.6;
+}
+probability ( s3 | s0 ) {
+  (1) 0.6, 0.4;
+}
+probability ( s4 | s0 ) {
+  (1) 0.1, 0.9;
+}
+probability ( x0 | s1, s3 ) {
+  (s1=0) 0.5, 0.5;
+  (s1=1) 0.5, 0.5;
+  (s3=0) 0.6, 0.4;
+  (s3=1) 0.6, 0.4;
+}
+probability ( x1 | s1, s3 ) {
+  (s1=0) p0 0.9*((1-p0)/(1-0.1));
+  (s1=1) 0.1, 0.9;
+  (s3=0) p0 0.9*((1-p0)/(1-0.1));
+  (s3=1) 0.1, 0.9;
+}
+probability ( x2 | s2, s4 ) {
+  (s2=0) 0.5, 0.5;
+  (s2=1) 0.3, 0.7;
+  (s4=0) 0.3, 0.7;
+  (s4=1) 0.3, 0.7;
+}
+probability ( x3 | s2, s4 ) {
+  (s2=0) 0.8, 0.2;
+  (s2=1) 0.8, 0.2;
+  (s4=0) 0.4, 0.6;
+  (s4=1) 0.8, 0.2;
+}
+parameter p0{
+}
+

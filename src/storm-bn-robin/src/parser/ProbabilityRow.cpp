@@ -20,7 +20,7 @@ ProbabilityRow::ProbabilityRow(){}
 void ProbabilityRow::initialize(std::string text, std::vector<std::string> parentNames,
                                std::vector<std::string> possibleValues) {
   rowDeclaration = text;
-  this->parentsNames = parentNames;//TODO for spn it should get only the parent of that row
+  this->parentsNames = parentNames;
   this->possibleValues = possibleValues;
   parse();
 }

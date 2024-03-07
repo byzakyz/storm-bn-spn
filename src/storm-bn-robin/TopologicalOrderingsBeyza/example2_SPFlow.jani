@@ -211,6 +211,33 @@
 		]
 	},
 	{
+		"location": "loc1",
+		"guard": {
+		"exp": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s0",
+				"right": 0
+				}
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc2",
+			"probability": {"exp": 1},
+			"assignments": [
+
+			]
+		}
+		]
+	},
+	{
 		"location": "loc2",
 		"guard": {
 		"exp": {
@@ -254,9 +281,9 @@
 		"location": "loc2",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -316,9 +343,9 @@
 		"location": "loc3",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -463,99 +490,80 @@
 		]
 	},
 	{
-		"location": "loc5",
+		"location": "loc4",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s4",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc6",
-			"probability": {"exp": 0.3},
-			"assignments": [
-			{
-				"ref": "s10",
-				"value": 0
-			},
-			{
-				"ref": "x1",
-				"value": -1
-			}
-			]
-		},
-		{
-			"location": "loc6",
-			"probability": {"exp": 0.7},
-			"assignments": [
-			{
-				"ref": "s10",
-				"value": 1
-			},
-			{
-				"ref": "x1",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc5",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s6",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s6",
 				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc6",
-			"probability": {"exp": 0.3},
-			"assignments": [
-			{
-				"ref": "s10",
-				"value": 0
-			},
-			{
-				"ref": "x1",
-				"value": -1
-			}
-			]
-		},
-		{
-			"location": "loc6",
-			"probability": {"exp": 0.7},
-			"assignments": [
-			{
-				"ref": "s10",
-				"value": 1
-			},
-			{
-				"ref": "x1",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc5",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s4",
 				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s4",
+				"right": 0
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
 		{
-			"location": "loc6",
+			"location": "loc5",
 			"probability": {"exp": 1},
 			"assignments": [
+
+			]
+		}
+		]
+	},
+	{
+		"location": "loc5",
+		"guard": {
+		"exp": {
+				"op": "=",
+				"left": "s4",
+				"right": 0
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc6",
+			"probability": {"exp": 0.3},
+			"assignments": [
+			{
+				"ref": "s10",
+				"value": 0
+			},
+			{
+				"ref": "x1",
+				"value": -1
+			}
+			]
+		},
+		{
+			"location": "loc6",
+			"probability": {"exp": 0.7},
+			"assignments": [
+			{
+				"ref": "s10",
+				"value": 1
+			},
 			{
 				"ref": "x1",
 				"value": -1
@@ -570,7 +578,55 @@
 		"exp": {
 				"op": "=",
 				"left": "s6",
-				"right": 1
+				"right": 0
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc6",
+			"probability": {"exp": 0.3},
+			"assignments": [
+			{
+				"ref": "s10",
+				"value": 0
+			},
+			{
+				"ref": "x1",
+				"value": -1
+			}
+			]
+		},
+		{
+			"location": "loc6",
+			"probability": {"exp": 0.7},
+			"assignments": [
+			{
+				"ref": "s10",
+				"value": 1
+			},
+			{
+				"ref": "x1",
+				"value": -1
+			}
+			]
+		}
+		]
+	},
+	{
+		"location": "loc5",
+		"guard": {
+		"exp": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s6",
+				"right": 0
+				},
+				"right": {
+				"op": "≠",
+				"left": "s4",
+				"right": 0
+				}
 		}
 		},
 		"destinations": [
@@ -686,35 +742,17 @@
 		"location": "loc6",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s4",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc7",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s4",
-				"value": -1
-			},
-			{
-				"ref": "s6",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc6",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s6",
-				"right": 0
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s4",
+				"right": 1
+				}
 		}
 		},
 		"destinations": [

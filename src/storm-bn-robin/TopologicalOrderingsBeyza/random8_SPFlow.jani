@@ -1082,6 +1082,33 @@
 		]
 	},
 	{
+		"location": "loc1",
+		"guard": {
+		"exp": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s0",
+				"right": 0
+				}
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc2",
+			"probability": {"exp": 1},
+			"assignments": [
+
+			]
+		}
+		]
+	},
+	{
 		"location": "loc2",
 		"guard": {
 		"exp": {
@@ -1153,6 +1180,36 @@
 				"ref": "x29",
 				"value": 1
 			},
+			{
+				"ref": "x34",
+				"value": -1
+			}
+			]
+		}
+		]
+	},
+	{
+		"location": "loc2",
+		"guard": {
+		"exp": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s0",
+				"right": 0
+				}
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc3",
+			"probability": {"exp": 1},
+			"assignments": [
 			{
 				"ref": "x34",
 				"value": -1
@@ -1242,6 +1299,36 @@
 		]
 	},
 	{
+		"location": "loc3",
+		"guard": {
+		"exp": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s0",
+				"right": 0
+				}
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc4",
+			"probability": {"exp": 1},
+			"assignments": [
+			{
+				"ref": "x29",
+				"value": -1
+			}
+			]
+		}
+		]
+	},
+	{
 		"location": "loc4",
 		"guard": {
 		"exp": {
@@ -1322,6 +1409,36 @@
 		]
 	},
 	{
+		"location": "loc4",
+		"guard": {
+		"exp": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s0",
+				"right": 0
+				}
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc5",
+			"probability": {"exp": 1},
+			"assignments": [
+			{
+				"ref": "x23",
+				"value": -1
+			}
+			]
+		}
+		]
+	},
+	{
 		"location": "loc5",
 		"guard": {
 		"exp": {
@@ -1365,9 +1482,9 @@
 		"location": "loc5",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -1419,9 +1536,9 @@
 		"location": "loc6",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -1470,9 +1587,9 @@
 		"location": "loc7",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -1585,9 +1702,25 @@
 		"location": "loc8",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s5",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s5",
 				"right": 0
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -1724,9 +1857,25 @@
 		"location": "loc9",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s4",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s4",
 				"right": 0
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -1800,9 +1949,9 @@
 		"location": "loc10",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -1854,28 +2003,9 @@
 		"location": "loc11",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s3",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc12",
-			"probability": {"exp": 1},
-			"assignments": [
-
-			]
-		}
-		]
-	},
-	{
-		"location": "loc11",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s3",
-				"right": 1
+				"right": 2
 		}
 		},
 		"destinations": [
@@ -2052,28 +2182,41 @@
 		"location": "loc12",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s3",
-				"right": 2
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc13",
-			"probability": {"exp": 1},
-			"assignments": [
-
-			]
-		}
-		]
-	},
-	{
-		"location": "loc12",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s61",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s61",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s3",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s3",
+				"right": 0
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -2130,9 +2273,9 @@
 		"location": "loc13",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -2184,9 +2327,9 @@
 		"location": "loc14",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -2235,9 +2378,9 @@
 		"location": "loc15",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -2494,9 +2637,49 @@
 		"location": "loc16",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s16",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s16",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s61",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s61",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s3",
-				"right": 2
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s3",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -2556,9 +2739,9 @@
 		"location": "loc17",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -2610,9 +2793,9 @@
 		"location": "loc18",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -2661,9 +2844,9 @@
 		"location": "loc19",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s5",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -2712,9 +2895,9 @@
 		"location": "loc20",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s6",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -2763,9 +2946,9 @@
 		"location": "loc21",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s6",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -2814,9 +2997,9 @@
 		"location": "loc22",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s15",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -3073,9 +3256,49 @@
 		"location": "loc23",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s15",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s87",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s87",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s15",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s3",
+				"right": 2
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s3",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s3",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -3287,35 +3510,33 @@
 		"location": "loc24",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s0",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s87",
 				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc25",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x0",
-				"value": -1
-			},
-			{
-				"ref": "s87",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc24",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s87",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s15",
-				"right": 1
+				"right": 0
+				},
+				"right": {
+				"op": "≠",
+				"left": "s0",
+				"right": 0
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -3379,9 +3600,9 @@
 		"location": "loc25",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s20",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -3433,9 +3654,9 @@
 		"location": "loc26",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -3612,9 +3833,41 @@
 		"location": "loc27",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s5",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s17",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s17",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s74",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s74",
+				"right": 0
+				},
+				"right": {
+				"op": "≠",
+				"left": "s5",
+				"right": 0
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -3671,9 +3924,9 @@
 		"location": "loc28",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s0",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -3933,9 +4186,41 @@
 		"location": "loc29",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s5",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s26",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s26",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s74",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s74",
+				"right": 0
+				},
+				"right": {
+				"op": "≠",
+				"left": "s5",
+				"right": 0
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -3999,9 +4284,9 @@
 		"location": "loc30",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s76",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -4053,9 +4338,9 @@
 		"location": "loc31",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s77",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -4104,9 +4389,9 @@
 		"location": "loc32",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s106",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -4315,28 +4600,49 @@
 		"location": "loc33",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s106",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc34",
-			"probability": {"exp": 1},
-			"assignments": [
-
-			]
-		}
-		]
-	},
-	{
-		"location": "loc33",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s20",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s106",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s213",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s213",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s4",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s4",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -4393,9 +4699,9 @@
 		"location": "loc34",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s165",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -4695,53 +5001,57 @@
 		"location": "loc35",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s165",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s26",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s26",
 				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc36",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s26",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc35",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc36",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s26",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc35",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s6",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s245",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s245",
 				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -5041,53 +5351,57 @@
 		"location": "loc36",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s165",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s20",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s20",
 				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc37",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x16",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc36",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc37",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x16",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc36",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s6",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s245",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s245",
 				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -5147,9 +5461,9 @@
 		"location": "loc37",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s180",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -5201,9 +5515,9 @@
 		"location": "loc38",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s259",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -5252,9 +5566,9 @@
 		"location": "loc39",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s180",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -5559,47 +5873,73 @@
 		"location": "loc40",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc41",
-			"probability": {"exp": 1},
-			"assignments": [
-
-			]
-		}
-		]
-	},
-	{
-		"location": "loc40",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s180",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s20",
 				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc41",
-			"probability": {"exp": 1},
-			"assignments": [
-
-			]
-		}
-		]
-	},
-	{
-		"location": "loc40",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s77",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s20",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s77",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s180",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s165",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -5656,9 +5996,9 @@
 		"location": "loc41",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s77",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -6118,53 +6458,89 @@
 		"location": "loc42",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s165",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc43",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s15",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc42",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc43",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s15",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc42",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s180",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s15",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s15",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s180",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s245",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s245",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -6664,75 +7040,97 @@
 		"location": "loc43",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s165",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc44",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x21",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc43",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc44",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x21",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc43",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s259",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc44",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x21",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc43",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s259",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s245",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s245",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -6792,9 +7190,9 @@
 		"location": "loc44",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s328",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -7334,97 +7732,105 @@
 		"location": "loc45",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s165",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc46",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s17",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc45",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc46",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s17",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc45",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s328",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s17",
 				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc46",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s17",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc45",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s259",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s17",
 				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc46",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s17",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc45",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s77",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s259",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s245",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s245",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -7964,97 +8370,105 @@
 		"location": "loc46",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s165",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc47",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x4",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc46",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc47",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x4",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc46",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s328",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s19",
 				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc47",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x4",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc46",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s259",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s19",
 				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc47",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x4",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc46",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s180",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s259",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s245",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s245",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -8114,9 +8528,9 @@
 		"location": "loc47",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s259",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -8696,119 +9110,113 @@
 		"location": "loc48",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s165",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc49",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s245",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc48",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc49",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s245",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc48",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s259",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc49",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s245",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc48",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s180",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc49",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s245",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc48",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s106",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc49",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s245",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc48",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s20",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s106",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s213",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s213",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s180",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s259",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s245",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s245",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -9268,53 +9676,89 @@
 		"location": "loc49",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s328",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc50",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x28",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc49",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s180",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc50",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x28",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc49",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s180",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s76",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -9774,53 +10218,89 @@
 		"location": "loc50",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc51",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x14",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc50",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s77",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc51",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x14",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc50",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s0",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s77",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s165",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -9880,9 +10360,9 @@
 		"location": "loc51",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s20",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -10091,6 +10571,65 @@
 		]
 	},
 	{
+		"location": "loc52",
+		"guard": {
+		"exp": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s110",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s110",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s106",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s106",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s9",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s9",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+		}
+		},
+		"destinations": [
+		{
+			"location": "loc53",
+			"probability": {"exp": 1},
+			"assignments": [
+
+			]
+		}
+		]
+	},
+	{
 		"location": "loc53",
 		"guard": {
 		"exp": {
@@ -10134,9 +10673,9 @@
 		"location": "loc53",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s213",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -10492,61 +11031,57 @@
 		"location": "loc54",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s213",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc55",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s9",
-				"value": -1
-			},
-			{
-				"ref": "s20",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc54",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s106",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc55",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s9",
-				"value": -1
-			},
-			{
-				"ref": "s20",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc54",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s20",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s106",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s213",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s9",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s9",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -10610,9 +11145,9 @@
 		"location": "loc55",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s16",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -11112,119 +11647,97 @@
 		"location": "loc56",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s76",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc57",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s180",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc56",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s328",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc57",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s180",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc56",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s259",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc57",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s180",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc56",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s180",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc57",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s180",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc56",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s77",
-				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc57",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s180",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc56",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s16",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s90",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s90",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s77",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s180",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s259",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s165",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -11284,9 +11797,9 @@
 		"location": "loc57",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s19",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -11338,9 +11851,9 @@
 		"location": "loc58",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s106",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -12117,53 +12630,153 @@
 		"location": "loc59",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s76",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s110",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s110",
 				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc60",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s165",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc59",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s328",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s219",
 				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc60",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s165",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc59",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s219",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s213",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s165",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s165",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -12223,9 +12836,9 @@
 		"location": "loc60",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s110",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -13309,69 +13922,153 @@
 		"location": "loc61",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s328",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s225",
 				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc62",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s328",
-				"value": -1
-			},
-			{
-				"ref": "s372",
-				"value": -1
-			},
-			{
-				"ref": "s219",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc61",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s213",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc62",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s328",
-				"value": -1
-			},
-			{
-				"ref": "s372",
-				"value": -1
-			},
-			{
-				"ref": "s219",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc61",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s225",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s110",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s219",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s219",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s213",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s372",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s328",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s76",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -15191,183 +15888,129 @@
 		"location": "loc62",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s259",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s225",
 				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc63",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x15",
-				"value": -1
-			},
-			{
-				"ref": "s76",
-				"value": -1
-			},
-			{
-				"ref": "s259",
-				"value": -1
-			},
-			{
-				"ref": "s333",
-				"value": -1
-			},
-			{
-				"ref": "s264",
-				"value": -1
-			},
-			{
-				"ref": "s213",
-				"value": -1
-			},
-			{
-				"ref": "s295",
-				"value": -1
-			},
-			{
-				"ref": "s106",
-				"value": -1
-			},
-			{
-				"ref": "s110",
-				"value": -1
-			},
-			{
-				"ref": "s225",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc62",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s213",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc63",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x15",
-				"value": -1
-			},
-			{
-				"ref": "s76",
-				"value": -1
-			},
-			{
-				"ref": "s259",
-				"value": -1
-			},
-			{
-				"ref": "s333",
-				"value": -1
-			},
-			{
-				"ref": "s264",
-				"value": -1
-			},
-			{
-				"ref": "s213",
-				"value": -1
-			},
-			{
-				"ref": "s295",
-				"value": -1
-			},
-			{
-				"ref": "s106",
-				"value": -1
-			},
-			{
-				"ref": "s110",
-				"value": -1
-			},
-			{
-				"ref": "s225",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc62",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s106",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s225",
 				"right": 0
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc63",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "x15",
-				"value": -1
-			},
-			{
-				"ref": "s76",
-				"value": -1
-			},
-			{
-				"ref": "s259",
-				"value": -1
-			},
-			{
-				"ref": "s333",
-				"value": -1
-			},
-			{
-				"ref": "s264",
-				"value": -1
-			},
-			{
-				"ref": "s213",
-				"value": -1
-			},
-			{
-				"ref": "s295",
-				"value": -1
-			},
-			{
-				"ref": "s106",
-				"value": -1
-			},
-			{
-				"ref": "s110",
-				"value": -1
-			},
-			{
-				"ref": "s225",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc62",
-		"guard": {
-		"exp": {
-				"op": "=",
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s110",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s106",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s295",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s213",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s264",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s333",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s259",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s76",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s76",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -15463,9 +16106,9 @@
 		"location": "loc63",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s4",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -15517,9 +16160,9 @@
 		"location": "loc64",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s4",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -15872,9 +16515,57 @@
 		"location": "loc65",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s16",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s90",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s90",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s67",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s67",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s63",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s63",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -15938,9 +16629,9 @@
 		"location": "loc66",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s19",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -15992,9 +16683,9 @@
 		"location": "loc67",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s103",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -16515,69 +17206,73 @@
 		"location": "loc68",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s6",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc69",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s6",
-				"value": -1
-			},
-			{
-				"ref": "s77",
-				"value": -1
-			},
-			{
-				"ref": "s186",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc68",
-		"guard": {
-		"exp": {
-				"op": "=",
-				"left": "s77",
-				"right": 1
-		}
-		},
-		"destinations": [
-		{
-			"location": "loc69",
-			"probability": {"exp": 1},
-			"assignments": [
-			{
-				"ref": "s6",
-				"value": -1
-			},
-			{
-				"ref": "s77",
-				"value": -1
-			},
-			{
-				"ref": "s186",
-				"value": -1
-			}
-			]
-		}
-		]
-	},
-	{
-		"location": "loc68",
-		"guard": {
-		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s103",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s204",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s204",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s101",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s101",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s186",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s77",
+				"right": 0
+				},
+				"right": {
+				"op": "≠",
+				"left": "s6",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -16645,9 +17340,9 @@
 		"location": "loc69",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s19",
-				"right": 1
+				"right": 0
 		}
 		},
 		"destinations": [
@@ -17003,9 +17698,57 @@
 		"location": "loc70",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "∧",
+				"left": {
+				"op": "≠",
 				"left": "s103",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s204",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s204",
 				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s99",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s99",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s4",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s4",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -17309,9 +18052,41 @@
 		"location": "loc71",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s0",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s103",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s103",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s99",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s99",
+				"right": 0
+				},
+				"right": {
+				"op": "≠",
+				"left": "s0",
+				"right": 0
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
@@ -17379,9 +18154,9 @@
 		"location": "loc72",
 		"guard": {
 		"exp": {
-				"op": "=",
+				"op": "≠",
 				"left": "s19",
-				"right": 0
+				"right": 1
 		}
 		},
 		"destinations": [
@@ -17793,9 +18568,57 @@
 		"location": "loc73",
 		"guard": {
 		"exp": {
-				"op": "=",
-				"left": "s19",
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s104",
 				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s104",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s19",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s67",
+				"right": 1
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s67",
+				"right": 0
+				},
+				"right": {
+				"op": "∧",
+				"left": {
+				"op": "≠",
+				"left": "s63",
+				"right": 1
+				},
+				"right": {
+				"op": "≠",
+				"left": "s63",
+				"right": 0
+				}
+				}
+				}
+				}
+				}
+				}
 		}
 		},
 		"destinations": [
