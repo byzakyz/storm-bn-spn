@@ -1,74 +1,47 @@
-Storm - A Modern Probabilistic Model Checker
-============================================
+# storm-bn-spn
+storm-bn-spn is a tool for analysis of (parametric) Sum Product Networks built on top of [storm-bn] and [STORM]. It exploits the probabilistic model checking techniques of STORM by transforming (parametric) SPNs into (parametric) Markov Chains, using the (p)SPN2(p)MC transformer. The (p)SPN2(p)MC transformer takes (parametric) Sum Product Networks in [BIF format] and translates them into the [Jani] specification.
 
-[![Build Status](https://github.com/moves-rwth/storm/workflows/Build%20Test/badge.svg)](https://github.com/moves-rwth/storm/actions)
-[![GitHub release](https://img.shields.io/github/release/moves-rwth/storm.svg)](https://github.com/moves-rwth/storm/releases/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1181896.svg)](https://doi.org/10.5281/zenodo.1181896)
+# Usage
+### Run the transformer
+1) Make the target
+```
+rm -rf build
+mkdir build && cd build
+cmake ..
+make
+```
+2) Run
+```build/bin/storm-bn-robin```
+3) Type spn or bn depending on what you want to transform and enter
+```spn```
+4) Type the name of the network example you want to transform and press enter.
+```random1_SPFlow```
 
+Note: Adjust the `std::string folder` in "[/src/storm-bn-robin-cli/storm-bn-robin.cpp]" to indicate the location of the examples.
 
-Usage
------------------------------
-The Storm website [www.stormchecker.org](https://www.stormchecker.org/) provides documentation and background information.
-- For installation and usage instructions, check out the documentation found in [Getting Started](http://www.stormchecker.org/getting-started.html).
-- Video tutorials and interactive code examples are available in [Tutorials](https://www.stormchecker.org/tutorials.html).
-- The [Storm starter project](https://github.com/moves-rwth/storm-project-starter-cpp/) provides a starting point for incorporating Storm into C++ projects.
-- Storm provides a Python interface called [stormpy](https://moves-rwth.github.io/stormpy/) for easy prototyping and interaction with Storm.
-- In case of any issues installing or using Storm, [let us know](https://www.stormchecker.org/documentation/obtain-storm/troubleshooting.html).
+# Subdirectories Description
+The tool builds upon "[storm-bn/bn-mc-transformer]" without creating additional subdirectories.  It derieves from the original classes to tailor the transformation to SPNs. Class files derived from the original classes are placed under the directory "[/src/storm-bn-robin]". New classes include:
+- storm-bn-robin/src/jani/JaniFileCreator_SPN.cpp
+- storm-bn-robin/src/parser/ProbabilityRow_SPN.cpp
+- storm-bn-robin/src/parser/ProbabilityTable_SPN.cpp
+- storm-bn-robin/src/parser/SPNetwork.cpp
+- storm-bn-robin/src/transformer/SPNTransformer.cpp
 
+We modified the "[/src/storm-bn-robin-cli/storm-bn-robin.cpp]" file in storm-bn to allow users to utilize both the pSPN2pMC and existing pBN2pMC transformations
 
-Examples
------------------------------
-Various benchmarks together with example invocations of Storm can be found at the [Quantitative Verification Benchmark Set (QVBS)](http://qcomp.org/benchmarks).
-Additional input files for Storm can be obtained from the [storm-examples](https://github.com/moves-rwth/storm-examples) repository.
+Minor changes were made to existing classes of storm-bn under "[/src/storm-bn-robin/src]" to enable the usage of derived classes.
 
+Benchmarks are located under "src/storm-bn-robin/TopologicalOrderingsBeyza". They were created using the SPFlow library by learning SPNs from random data.
 
-Developers
------------------------------
-We welcome contributions to Storm.
-Our [information for developers](doc/developers.md) contains general information to get started with the development on Storm.
-Feel free to contact us in case you need any pointers or help.
+# Dependencies
+- [Storm]: the backend probabilistic model checker.
+- [storm-bn]: used for its (parametric) BN to MC transformer, upon which our transformation is built.
 
-
-Authors
------------------------------
-Storm has been developed at RWTH Aachen University.
-
-###### Principal developers
-* Christian Hensel
-* Sebastian Junges
-* Joost-Pieter Katoen
-* Tim Quatmann
-* Matthias Volk
-
-###### Developers (lexicographical order)
-* Jana Berger
-* Alexander Bork
-* David Korzeniewski
-* Jip Spel
-
-###### Contributors (lexicographical order)
-* Daniel Basgöze
-* Dimitri Bohlender
-* Harold Bruintjes
-* Michael Deutschen
-* Linus Heck
-* Thomas Heinemann
-* Thomas Henn
-* Tom Janson
-* Jan Karuc
-* Joachim Klein
-* Gereon Kremer
-* Sascha Vincent Kurowski
-* Hannah Mertens
-* Stefanie Mohr
-* Stefan Pranger
-* Svenja Stein
-* Manuel Sascha Weiand
-* Lukas Westhofen
-
-For an exhaustive list of contributors and more details, see the [Github page](https://github.com/moves-rwth/storm/graphs/contributors).
-
-
-Citing Storm
------------------------------
-If you want to cite Storm, please use the most recent paper in [this category](https://www.stormchecker.org/publications.html).
+        [Storm]: <https://www.stormchecker.org/>
+        [storm-bn]: <https://github.com/BaharSlmn/storm-bn/>
+        [BIF format]: <http://www.cs.cmu.edu/afs/cs/user/fgcozman/www/Research/InterchangeFormat/>
+        [Jani]: <https://jani-spec.org/>
+        [/src/storm-bn-robin-cli/storm-bn-robin.cpp]: <https://github.com/BaharSlmn/storm-bn/blob/master/bn-mc-transformer/src/storm-bn-robin-cli/storm-bn-robin.cpp>
+        [/src/storm-bn-robin/src]: <https://github.com/BaharSlmn/storm-bn/tree/master/bn-mc-transformer/src/storm-bn-robin>
+        [storm-bn/bn-mc-transformer]: <https://github.com/BaharSlmn/storm-bn/tree/master/bn-mc-transformer>
+        [/src/storm-bn-robin]: <https://github.com/byzakyz/storm-bn-spn/tree/main/src/storm-bn-robin>
